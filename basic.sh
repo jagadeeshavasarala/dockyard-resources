@@ -7,7 +7,7 @@ sudo apt-get -qq update -y || { echo "command: apt update FAILED"; e=1; }
 sudo apt-get -qq install curl -y || { echo"command: apt install curl FAILED"; e=1; }
 
 # curl access
-curl https://github.com/oneconvergence/dkube-examples/blob/tensorflow/README.md || { echo "command: curl https://github.com/oneconvergence/dkube-examples/blob/tensorflow/README.md FAILED"; e=1; }
+curl https://github.com/oneconvergence/dkube-examples/blob/tensorflow/README.md > curl-output.txt;rm curl-output.txt || { echo "command: curl https://github.com/oneconvergence/dkube-examples/blob/tensorflow/README.md FAILED"; e=1; }
 
 #Cloning git repository
 [[ -d "./dockyard-resources" ]]  &&  sudo rm -rf ./dockyard-resources
