@@ -26,7 +26,7 @@ echo ${space}
 #eksctl get nodegroup --cluster $1 --region us-west-2
 command -v stress-ng && [[  $? -eq 0  ]] || sudo apt-get -qq install stress-ng -y
 
-stress-ng -m ${mem} -c ${cpu} -l 75 % -d ${space} -t $1 || { echo "command: stress-ng FAILED"; e=1; }
+stress-ng -m ${mem} -c ${cpu} -l 75 -d ${space} -t $1 || { echo "command: stress-ng FAILED"; e=1; }
 
 #eksctl get nodegroup --cluster $1 --region us-west-2
 [[ ${e} == 0 ]] && echo "SCRIPT RAN SUCESSFULLY";
