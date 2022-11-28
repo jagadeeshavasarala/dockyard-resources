@@ -20,12 +20,5 @@ aws s3 cp s3://altos-oneconvergence-tfstate/root.tfstate . || { echo "command: a
 
 aws s3 cp s3://altos-oneconvergence-tfstate/root.tfstate /home/default && { echo "command: aws s3 cp s3://altos-oneconvergence-tfstate/root.tfstate /home/default PASSED UNEXPECTED" && sudo rm -rf /home/default/root.tf; e=1; }
 
-#Verify read/write access on other user
 
-touch /home/default/testfile && { echo "command: touch /home/default/testfile PASSED UNEXPECTED"; rm /home/default/testfile; e=1; }
-touch test || { echo "command: touch FAILED"; e=1; }
-
-#Changing file permissions
-sudo chmod 777 /home/default && { echo "command: sudo chmod 777 /home/default PASSED UNEXPECTED"; sudo chmod 755 /home/default; e=1; }
-sudo chown bsabata:bsabata /home/default && { echo "command: sudo chown bsabata:bsabata /home/default PASSED UNEXPECTED"; sudo chown default:default /home/default; e=1; }
 [[ ${e} == 0 ]] && echo "SCRIPT RAN SUCESSFULLY";
