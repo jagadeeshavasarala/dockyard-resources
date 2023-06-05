@@ -11,6 +11,7 @@ curl https://github.com/oneconvergence/dkube-examples/blob/tensorflow/README.md 
 
 #Cloning git repository
 [[ -d "./dockyard-resources" ]]  &&  sudo rm -rf ./dockyard-resources
+[[ -d "./dkube-examples" ]]  &&  sudo rm -rf ./dkube-examples
 git clone https://github.com/oneconvergence/dkube-examples.git || { echo "command: git clone https://github.com/oneconvergence/dkube-examples.git FAILED"; e=1; }
 
 #aws s3 access 
