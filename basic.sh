@@ -19,7 +19,5 @@ aws sts get-caller-identity || { echo "command: aws sts get-caller-identity FAIL
 
 aws s3 cp s3://altos-oneconvergence-tfstate/root.tfstate . || { echo "command: aws s3 cp to current dir FAILED"; e=1; }
 
-aws s3 cp s3://altos-oneconvergence-tfstate/root.tfstate /home/default && { echo "command: aws s3 cp s3://altos-oneconvergence-tfstate/root.tfstate /home/default PASSED UNEXPECTED" && sudo rm -rf /home/default/root.tf; e=1; }
-
 
 [[ ${e} == 0 ]] && echo "SCRIPT RAN SUCESSFULLY";
